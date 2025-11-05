@@ -1,4 +1,4 @@
-const heroModel = require('./models/heroModel');
+const heroModel = require('../models/heroModel');
 
 exports.getHeroData = async (req, res) => {
     const heroName = req.params.heroName.toLowerCase();

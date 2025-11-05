@@ -1,10 +1,10 @@
 const express = require('express');
 const morgan = require('morgan');
-const errorHandler = require('./errorHandler');
+const errorHandler = require('./middlewares/errorHandler');
 
 
 const heroRoutes = require('./routes/heroRoutes');
-const heroCrudRoutes = require('./routes/heroCrudRoutes');
+const heroCrudRoutes = require('./routes/CrudRoutes');
 
 
 const app = express();
@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/hero', heroRoutes);
 app.use('/hero-crud', heroCrudRoutes);
 
+app.use(errorHandler);
 app.listen(port, () => {
     console.log(`Listening on port http://localhost:${port}`);
 })
-app.use(errorHandler);
