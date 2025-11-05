@@ -4,7 +4,7 @@ const errorHandler = require('./middlewares/errorHandler');
 
 
 const heroRoutes = require('./routes/heroRoutes');
-const heroCrudRoutes = require('./routes/CrudRoutes');
+const heroCrudRoutes = require('./routes/crudRoutes');
 
 
 const app = express();

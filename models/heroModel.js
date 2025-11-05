@@ -21,3 +21,20 @@ exports.fetchHero = async (heroName) => {
         // brug map
     }
 }
+
+    exports.fetchAllHeroes = async () => {
+        const response = await axios.get('https://akabab.github.io/superhero-api/api/all.json');
+        const data = response.data;
+
+        // Map all heroes to your desired format
+        return data.map(hero => ({
+            id: hero.id,
+            name: hero.name,
+            fullName: hero.biography.fullName,
+            publisher: hero.biography.publisher,
+            strength: hero.powerstats.strength,
+            speed: hero.powerstats.speed,
+            image: hero.images.md
+        }));
+
+}
